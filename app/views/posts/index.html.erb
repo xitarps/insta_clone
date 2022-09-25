@@ -1,27 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.description %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<main class="posts-page container">
+  <section class="posts">
+    <% if @posts.any? %>
+      <%= render @posts %>
+    <% else %>
+      Nenhum post ainda.
     <% end %>
-  </tbody>
-</table>
+  </section>
 
-<br>
+  <aside>
+    sidebar
 
-<%= link_to 'New Post', new_post_path %>
+    <section class="suggestions">
+      <h4>Sugestões Para Você</h4>
+    </section>
+  </aside>
+
+  <footer>
+    © <%= Date.current.year %> INSTAGRAM CLONE
+  </footer>
+</main>
