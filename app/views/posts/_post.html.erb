@@ -2,7 +2,7 @@
   <header>
     <nav>
       <%= image_tag 'default-avatar.jpg', class: 'photo' %>
-      <h4>nome-do-usuario</h4>
+      <h4><%= post.created_by.username %></h4>
     </nav>
 
     <nav class='actions'>
@@ -26,7 +26,9 @@
         </div>
 
         <div class="action">
-            <%= embedded_svg('comment.svg') %>
+          <%= link_to post do%>
+              <%= embedded_svg('comment.svg') %>
+          <% end %>
         </div>
 
         <div class="action">
@@ -42,7 +44,7 @@
     </section>
 
     <section class='description'>
-      <p><strong>nome-do-usuario</strong> <%= post.description %></p>
+      <p><strong><%= post.created_by.username %></strong> <%= post.description %></p>
     </section>
 
     <section class='created-at'>

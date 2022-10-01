@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(post_params.merge(created_by: current_user))
     message = 'Post criado com sucesso.'
     return redirect_to post_url(@post), notice: message if @post.save
 
