@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     user = User.find_by(username: params[:username])
-    @posts = user.posts
+    @posts = user.posts.order(created_at: :desc)
 
     render 'posts/index'
   end
@@ -24,6 +24,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:avatar, :name)
   end
 end
