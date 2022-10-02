@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :set_suggested_users, only: %i[index]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def show
@@ -20,6 +20,7 @@ class PostsController < ApplicationController
     message = 'Post criado com sucesso.'
     return redirect_to post_url(@post), notice: message if @post.save
 
+    flash.now[:alert] = @post.errors.full_messages.to_sentence
     render :new, status: :unprocessable_entity
   end
 
@@ -30,6 +31,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:description)
+    params.require(:post).permit(:photo, :description)
   end
 end

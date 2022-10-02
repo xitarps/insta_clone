@@ -2,6 +2,10 @@
   <h1>Novo post</h1>
 
   <div class="field">
+    <%= form.file_field :photo %>
+  </div>
+
+  <div class="field">
     <%= form.text_field :description, placeholder: "Descrição" %>
   </div>
 
