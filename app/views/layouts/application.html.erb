@@ -10,8 +10,7 @@
     <%= stylesheet_pack_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </head>
-
-  <body data-flash-messages = <%= JSON.dump(flash.to_a) %> >
+  <body data-flash-messages='<%= JSON.dump(flash.to_a) %>' >
     <header>
       <div class="container">
         <nav>
@@ -28,11 +27,13 @@
 
         <nav class="actions">
           <%= link_to embedded_svg('plus.svg'), new_post_path %>
-          <%= link_to embedded_svg('user.svg'), '#' %>
+          <%= link_to embedded_svg("user.svg"), "#", data: { modal_id: "user-actions" } %>
         </nav>
       </div>
     </header>
 
     <%= yield %>
+
+    <%= render 'layouts/users_actions_modal' %>
   </body>
 </html>

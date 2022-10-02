@@ -12,7 +12,7 @@
     <%= javascript_pack_tag 'authentication' %>
   </head>
 
-  <body data-flash-messages = <%= JSON.dump(flash.to_a) %> >
+  <body data-flash-messages='<%= JSON.dump(flash.to_a) %>' >
     <main>
       <section class='hero'>
         <div class="logo">
