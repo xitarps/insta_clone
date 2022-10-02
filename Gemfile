@@ -49,3 +49,5 @@ gem "rails-i18n", "~> 7.0"
 
 gem "devise", "~> 4.8"
 gem "devise-i18n", "~> 1.10"
+
+gem "letter_opener", "~> 1.8"

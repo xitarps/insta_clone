@@ -1,6 +1,6 @@
 pt-BR:
   active-record:
-    model:
+    models:
       user: 'Usuário'
     attributes:
       default: &default
