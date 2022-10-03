@@ -18,8 +18,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params.merge(created_by: current_user))
-    message = 'Post criado com sucesso.'
-    return redirect_to post_url(@post), notice: message if @post.save
+    if @post.save
+      PostChannel.broadcast_to 'post_channel', post_created: render_to_string(partial: @post)
+      message = 'Post criado com sucesso.'
+      return redirect_to post_url(@post), notice: message
+    end
 
     flash.now[:alert] = @post.errors.full_messages.to_sentence
     render :new, status: :unprocessable_entity
