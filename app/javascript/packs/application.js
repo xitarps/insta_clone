@@ -6,6 +6,8 @@
 import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+require("trix")
+require("@rails/actiontext")
 import '../src/application.css'
 
 import './flashMessages'

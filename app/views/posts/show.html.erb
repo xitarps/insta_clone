@@ -15,7 +15,7 @@
         <%= form.hidden_field :post_id, value: @post.id %>
 
         <div class="field">
-          <%= form.text_area :body, placeholder: "Comentário", required: true %>
+          <%= form.rich_text_area :body, placeholder: "Comentário", required: true %>
         </div>
 
         <div class="actions">

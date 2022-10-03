@@ -4,7 +4,7 @@
   <% end %>
 
   <section class="body">
-    <strong><%= comment.user.username %></strong> <%= comment.body %>
+    <strong><%= comment.user.username %></strong> <%= comment.body.html_safe %>
   </section>
 
   <section class="created-at">
