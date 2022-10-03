@@ -38,5 +38,9 @@ module InstaClone
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Ngrok
+    # config.hosts << "a3c8-187-34-197-181.ngrok.io" if Rails.env.development?
+    config.hosts << /[a-z0-9-]+\.ngrok\.io/ if Rails.env.development?
   end
 end
