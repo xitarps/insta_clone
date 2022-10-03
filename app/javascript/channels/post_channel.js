@@ -10,6 +10,9 @@ consumer.subscriptions.create("PostChannel", {
   },
 
   received({post_created}) {
+    const is_loking_show = document.querySelector(".comments");
+    debugger
+    if(is_loking_show) return;
     // Called when there's incoming data on the websocket for this channel
     const template = document.createElement("template")
     const posts = document.querySelector(".posts");
