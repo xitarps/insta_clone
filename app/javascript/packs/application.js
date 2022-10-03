@@ -10,6 +10,7 @@ import '../src/application.css'
 
 import './flashMessages'
 import './modal'
+import './likes'
 
 Rails.start()
 ActiveStorage.start()
